@@ -1,0 +1,56 @@
+:root {
+  /* Тёмная палитра в духе Slack + магический фиолет */
+  --bg: #150a25;
+  --bg-2: #1a0f2e;
+  --surface: #221634;
+  --surface-2: #2a1c40;
+  --border: #3a2b55;
+  --text: #ece6f5;
+  --muted: #a99fc0;
+  --accent: #a78bfa;
+  --accent-strong: #7c3aed;
+  --gold: #fbbf24;
+  --support: #34d399;
+  --danger: #fca5a5;
+
+  font-family: 'Segoe UI', Inter, system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(124, 58, 237, 0.22), transparent 60%),
+    radial-gradient(900px 500px at 0% 110%, rgba(251, 191, 36, 0.08), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(167, 139, 250, 0.4);
+}

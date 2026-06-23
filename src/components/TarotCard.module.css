@@ -1,0 +1,114 @@
+.slot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.position {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 170px;
+  aspect-ratio: 5 / 8;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: rotateY(180deg);
+}
+
+.card.revealed {
+  transform: rotateY(0deg);
+}
+
+.back,
+.front {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(251, 191, 36, 0.18), transparent 60%),
+    linear-gradient(160deg, #2a1a4a, #160d2b);
+  border: 1px solid rgba(233, 213, 255, 0.25);
+  box-shadow: inset 0 0 40px rgba(124, 58, 237, 0.3);
+}
+
+.backGlyph {
+  font-size: 40px;
+  color: rgba(251, 191, 36, 0.8);
+  opacity: 0.9;
+}
+
+.front {
+  gap: 10px;
+  padding: 14px 10px;
+  color: #f6f0ff;
+  background:
+    radial-gradient(circle at 50% 22%, hsla(var(--hue), 70%, 55%, 0.35), transparent 65%),
+    linear-gradient(165deg, hsl(var(--hue), 45%, 22%), #140b27 85%);
+  border: 1px solid hsla(var(--hue), 60%, 70%, 0.45);
+  box-shadow:
+    inset 0 0 30px hsla(var(--hue), 60%, 40%, 0.35),
+    0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.symbol {
+  font-size: 46px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.reversedSymbol {
+  transform: rotate(180deg);
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.reversedTag {
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.4);
+  border: 1px solid rgba(252, 165, 165, 0.35);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+@media (max-width: 560px) {
+  .symbol {
+    font-size: 38px;
+  }
+  .name {
+    font-size: 13px;
+  }
+}
