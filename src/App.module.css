@@ -350,6 +350,28 @@
   color: var(--support);
 }
 
+.resetBtn {
+  align-self: center;
+  margin-top: 6px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.resetBtn:hover {
+  background: var(--surface-2);
+  border-color: var(--accent);
+}
+
+.resetBtn:active {
+  transform: translateY(1px);
+}
+
 .emptyHint {
   margin-top: 28px;
   text-align: center;

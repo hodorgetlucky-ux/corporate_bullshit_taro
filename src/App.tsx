@@ -29,6 +29,7 @@ export default function App() {
   const [status, setStatus] = useState<Status>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const resultRef = useRef<HTMLDivElement | null>(null)
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const t = STRINGS[lang]
 
@@ -109,6 +110,17 @@ export default function App() {
     }
   }
 
+  const resetAll = () => {
+    if (speech.listening) speech.stop()
+    setSituation('')
+    setCards(null)
+    setReading(null)
+    setErrorMsg('')
+    setStatus('idle')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    requestAnimationFrame(() => textareaRef.current?.focus())
+  }
+
   const loading = status === 'loading'
 
   return (
@@ -141,6 +153,7 @@ export default function App() {
           <div className={styles.inputWrap}>
             <textarea
               id="situation"
+              ref={textareaRef}
               className={styles.textarea}
               value={situation}
               onChange={(e) => setSituation(e.target.value)}
@@ -171,7 +184,7 @@ export default function App() {
             onClick={doReading}
             disabled={loading}
           >
-            {loading ? t.drawing : status === 'done' ? `🔮 ${t.again}` : `🔮 ${t.draw}`}
+            {loading ? t.drawing : `🔮 ${t.draw}`}
           </button>
         </section>
 
@@ -232,6 +245,10 @@ export default function App() {
               <h3 className={styles.blockTitle}>💛 {t.resultSupport}</h3>
               <p>{reading.support}</p>
             </div>
+
+            <button type="button" className={styles.resetBtn} onClick={resetAll}>
+              ↺ {t.again}
+            </button>
           </section>
         )}
 
